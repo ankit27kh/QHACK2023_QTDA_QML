@@ -14,5 +14,5 @@ Data -> Simplicial complex ->
 Quantum topological data analysis to get Betti numbers
 -> Variational quantum algorithms for QML
 
-Reference:
+## Reference:
 Lloyd, S., Garnerone, S. & Zanardi, P. Quantum algorithms for topological and geometric analysis of data. Nat Commun 7, 10138 (2016). https://doi.org/10.1038/ncomms10138
