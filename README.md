@@ -1,6 +1,6 @@
 # Project Name: Quantum Machine Learning with Quantum Topological Data Analysis
 
-## Team Name: Ank
+## Team Name: AnK
 ### Team Members: Ankit Khandelwal
 
 #### Main File: quantum_betti_calc.py
