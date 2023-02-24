@@ -10,8 +10,8 @@ np.set_printoptions(precision=4)
 np.set_printoptions(suppress=True)
 
 # Create random edges
-edges = set(map("".join, combinations("01234567", 2)))
-for _ in range(int(len(edges) * 0.3)):
+edges = set(map("".join, combinations("01234567", 2)))  # Vertex labels
+for _ in range(int(len(edges) * 0.3)):  # Remove 30% of edges
     edges.pop()
 
 # Generate a simplicial complex
@@ -29,9 +29,9 @@ sc = list(set(sc))
 sc.sort()
 
 # Classically calculate betti numbers
-bnd, simplicies = boundary(sc)
+bnd, simplicies = boundary(sc)  # Boundary operators
 Homo = homology(bnd)
-b = betti(Homo)
+b = betti(Homo)  # Betti numbers
 print("Betti Numbers:", b)
 
 # Quantum calculation for k-th betti number
@@ -39,12 +39,12 @@ k = 0
 # Min and max precision qubits to use for QPE
 min_pre = 1
 max_pre = 10
-dim = len(simplicies[k])
 
 # Calculate the combinatorial laplacian and verify betti number classically
 comb_lap = bnd[k].T @ bnd[k] + bnd[k + 1] @ bnd[k + 1].T
 kernel_cp = null_space(comb_lap)
 betti_k_dim = kernel_cp.shape[1]
+# This is the value we want to estimate using quantum computing
 betti_k_zero_eig = np.count_nonzero(np.absolute(eigvals(comb_lap)) < 10**-7)
 print(f"Betti number {k}:", betti_k_dim, betti_k_zero_eig)
 num = int(np.ceil(np.log2(comb_lap.shape[0])))
@@ -92,7 +92,7 @@ for pre in range(min_pre, max_pre + 1):
     print(
         pre,
         probs[:, 0] * 2**num,
-        np.abs((b[k] - probs[:, 0] * 2**num) / b[k]) * 100,
+        np.abs((betti_k_zero_eig - probs[:, 0] * 2**num)),
     )
 
 print("Quantum Circuit")
