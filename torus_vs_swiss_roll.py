@@ -1,26 +1,18 @@
-import string
 import matplotlib.pyplot as plt
 import numpy as np
 import tadasets
-import gudhi as gd
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-
 from classical_betti_calc import boundary, homology, betti
-
-characters = string.digits + string.ascii_letters
+from utils import make_simplicies
 
 all_accs = [[], []]
 all_noises = np.linspace(0, 5, 30)
 for noise in all_noises:
-    torus = [
-        tadasets.torus(n=len(characters), c=5, a=1, ambient=10, noise=noise)
-        for _ in range(50)
-    ]
+    torus = [tadasets.torus(n=62, c=5, a=1, ambient=10, noise=noise) for _ in range(50)]
     swiss_roll = [
-        tadasets.swiss_roll(n=len(characters), r=5, ambient=10, noise=noise)
-        for _ in range(50)
+        tadasets.swiss_roll(n=62, r=5, ambient=10, noise=noise) for _ in range(50)
     ]
 
     all_shapes = []
@@ -36,27 +28,7 @@ for noise in all_noises:
     # tadasets.plot3d(swiss_roll[0])
     # plt.show()
 
-    skeletons_2d = [gd.RipsComplex(points=x, max_edge_length=2) for x in all_shapes]
-    data_2d_simplex_tree = [
-        skeleton.create_simplex_tree(max_dimension=5) for skeleton in skeletons_2d
-    ]
-    num_ver_simp = [
-        [simplex_tree.num_vertices(), simplex_tree.num_simplices()]
-        for simplex_tree in data_2d_simplex_tree
-    ]
-    rips_lists = [
-        list(simplex_tree.get_filtration()) for simplex_tree in data_2d_simplex_tree
-    ]
-
-    scs = []
-    for rips_list in rips_lists:
-        sc = []
-        for simplex in rips_list:
-            temp = ""
-            for vertex in simplex[0]:
-                temp = temp + characters[vertex]
-            sc.append(temp)
-        scs.append(sc)
+    scs = make_simplicies(all_shapes, 2, 5)
 
     new_features = []
     skipped = []

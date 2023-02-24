@@ -1,21 +1,15 @@
-import string
-from sklearn.ensemble import RandomForestClassifier
+import numpy as np
+import matplotlib.pyplot as plt
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
-from sklearn.svm import SVC
-from classical_betti_calc import boundary, homology, betti
-import numpy as np
 from sklearn.datasets import load_digits
-import matplotlib.pyplot as plt
-import gudhi as gd
+from classical_betti_calc import boundary, homology, betti
+from utils import make_simplicies
 
 np.random.seed(0)
 np.set_printoptions(precision=3)
 np.set_printoptions(suppress=True)
-
-characters = string.digits + string.ascii_letters
-
 
 data, targets = load_digits(return_X_y=True)
 
@@ -66,29 +60,7 @@ possible_edge_ls.pop(0)
 # possible_edge_ls=possible_edge_ls[:-4]
 all_accs = [[], []]
 for edge_l in possible_edge_ls:
-    skeletons_2d = [
-        gd.RipsComplex(points=x, max_edge_length=edge_l) for x in all_vertices
-    ]
-    data_2d_simplex_tree = [
-        skeleton.create_simplex_tree(max_dimension=3) for skeleton in skeletons_2d
-    ]
-    num_ver_simp = [
-        [simplex_tree.num_vertices(), simplex_tree.num_simplices()]
-        for simplex_tree in data_2d_simplex_tree
-    ]
-    rips_lists = [
-        list(simplex_tree.get_filtration()) for simplex_tree in data_2d_simplex_tree
-    ]
-
-    scs = []
-    for rips_list in rips_lists:
-        sc = []
-        for simplex in rips_list:
-            temp = ""
-            for vertex in simplex[0]:
-                temp = temp + characters[vertex]
-            sc.append(temp)
-        scs.append(sc)
+    scs = make_simplicies(all_vertices, edge_l, 3)
 
     new_features = []
     for i, sc in enumerate(scs):

@@ -1,3 +1,5 @@
+import string
+import gudhi as gd
 import numpy as np
 
 np.random.seed(0)
@@ -54,3 +56,29 @@ def gershgorin(matrix):
         ri = np.sum(np.absolute(np.delete(row, i)))
         ends.append(ci + ri)
     return max(ends)
+
+
+def make_simplicies(vertices_list, edge_length, max_d):
+    characters = string.digits + string.ascii_letters
+
+    skeletons_2d = [
+        gd.RipsComplex(points=x, max_edge_length=edge_length) for x in vertices_list
+    ]
+    data_2d_simplex_tree = [
+        skeleton.create_simplex_tree(max_dimension=max_d) for skeleton in skeletons_2d
+    ]
+    rips_lists = [
+        list(simplex_tree.get_filtration()) for simplex_tree in data_2d_simplex_tree
+    ]
+
+    scs = []
+    for rips_list in rips_lists:
+        sc = []
+        for simplex in rips_list:
+            temp = ""
+            for vertex in simplex[0]:
+                temp = temp + characters[vertex]
+            sc.append(temp)
+        scs.append(sc)
+
+    return scs
