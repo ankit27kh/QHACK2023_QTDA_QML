@@ -7,7 +7,7 @@
 The project is contained in Jupyter notebooks that are meant to be taken together as the project.
 Here, I will provide some description of the project files.
 ***
-* intro.??? contains the introduction to Topological Data Analysis (TDA), Betti Numbers and Quantum Topological Data Analysis (QTDA).
+* intro.pdf contains the introduction to Topological Data Analysis (TDA), Betti Numbers, Quantum Topological Data Analysis (QTDA) and the machine learning approach used.
 * quantum_betti_calc.ipynb goes over the QTDA algorithm.
 * mnist_qtda_qml.ipynb shows different approaches to use Betti numbers for classifying 0 and 1 digits. The simulations were performed on the Run:ai server using the provided NVIDIA GPU. A hybrid quantum classical machine learning model performs best. (See get_system_ready.txt).
 * mnist_edge_length.ipynb uses variable edge lengths to find the optimal edge length for simplicial complex creation to use for classification.
