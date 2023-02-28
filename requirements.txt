@@ -1,0 +1,16 @@
+gudhi==3.7.1
+jax==0.4.3
+matplotlib==3.7.0
+numpy==1.24.2
+optax==0.1.4
+pandas==1.4.1
+PennyLane==0.27.0
+qiskit==0.41.1
+qiskit_aer==0.11.2
+qiskit_braket_provider==0.0.3
+scikit_learn==1.2.1
+scipy==1.10.1
+seaborn==0.12.2
+tadasets==0.0.4
+PennyLane-Lightning==0.27.0
+Pennylane-lightning-gpu==0.27.0

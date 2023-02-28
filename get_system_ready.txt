@@ -1,0 +1,9 @@
+conda update -n base -c conda-forge conda -y
+conda install cuda -c nvidia/label/cuda-11.4.0 -y
+pip install cuquantum
+pip install PennyLane==0.27.0 PennyLane-Lightning==0.27.0 Pennylane-lightning-gpu==0.27.0 
+conda install jaxlib=*=*cuda* "jax<0.4.4" cuda-nvcc -c conda-forge -c nvidia -y
+conda install -c conda-forge gudhi -y
+conda install -c conda-forge scikit-learn -y
+pip install optax
+pip install tadasets
