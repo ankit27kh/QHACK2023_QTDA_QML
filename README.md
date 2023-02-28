@@ -5,6 +5,7 @@
 
 #### Project Synopsis:
 We consider the problem of estimating Betti numbers of a dataset using quantum topological data analysis and use these numbers as the sole features for machine learning.
+(Check intro.pdf for more details).
 
 #### Files:
 The project is contained in Jupyter notebooks that are meant to be taken together as the project.
