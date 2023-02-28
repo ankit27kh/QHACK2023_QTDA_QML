@@ -31,16 +31,11 @@ Here, I will provide some description of the project files.
 ## References:
 Lloyd, S., Garnerone, S. & Zanardi, P. Quantum algorithms for topological and geometric analysis of data. Nat Commun 7, 10138 (2016). https://doi.org/10.1038/ncomms10138
 
-Casper Gyurik, Chris Cade, and Vedran Dunjko. “Towards quantum advantage via
-topological data analysis”. In: Quantum 6 (Nov. 2022), p. 855. issn: 2521-327X.  http://dx.doi.org/10.22331/q-2022-11-10-855.
+Casper Gyurik, Chris Cade, and Vedran Dunjko. “Towards quantum advantage via topological data analysis”. In: Quantum 6 (Nov. 2022), p. 855. issn: 2521-327X.  http://dx.doi.org/10.22331/q-2022-11-10-855.
 
-Ismail Yunus Akhalwaya et al. Towards Quantum Advantage on Noisy Quantum
-Computers. 2022. arXiv: 2209.09371 [quant-ph].
+Ismail Yunus Akhalwaya et al. Towards Quantum Advantage on Noisy Quantum Computers. 2022. arXiv: 2209.09371 [quant-ph].
 
-Dominic W. Berry et al. Quantifying Quantum Advantage in Topological Data Anal-
-ysis. 2022. arXiv: 2209.13581 [quant-ph].
+Dominic W. Berry et al. Quantifying Quantum Advantage in Topological Data Analysis. 2022. arXiv: 2209.13581 [quant-ph].
 
-S. Geršgorin. “Über die Abgrenzung der Eigenwerte einer Matrix”. In: Bulletin
-de l’Académie des Sciences de l’URSS. Classe des sciences mathématiques et na
-6 (1931), pp. 749–754.
+S. Geršgorin. “Über die Abgrenzung der Eigenwerte einer Matrix”. In: Bulletin de l’Académie des Sciences de l’URSS. Classe des sciences mathématiques et na 6 (1931), pp. 749–754.
 
