@@ -25,6 +25,7 @@ Here, I will provide some description of the project files.
 * classical_betti_calc.py contains helper functions to classically calculate Betti numbers.
 * get_system_ready.txt contains the commands used to get the Run:ai server setup to run the simulations.
 * requirements.txt contains the basic project requirements. Using the GPU and/or AWS will require further setup dependent on the individual device.
+* README.md contains this text.
 ***
 
 ## References:
